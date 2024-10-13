@@ -1,0 +1,42 @@
+# Ignore object files
+*.o
+
+# Ignore executables
+server
+client
+
+# Ignore debugging files
+*.gch
+*.out
+
+# Ignore temporary files created by editors or OS
+*.swp
+*.swo
+*.bak
+*.tmp
+*~
+
+# Ignore log files
+*.log
+
+# Ignore directories created by build tools
+/build/
+/dist/
+/bin/
+/obj/
+
+# Ignore system specific files
+.DS_Store
+Thumbs.db
+
+# Ignore make clean artifacts
+*.d
+
+# Ignore CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Ignore VSCode workspace settings
+.vscode/
