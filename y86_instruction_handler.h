@@ -12,6 +12,10 @@
 
 using namespace std;
 
+#define FLAG_O 0x20
+#define FLAG_Z 0x40
+#define FLAG_S 0x04
+
 struct y86_state {
     uint8_t memory[1024];
     uint64_t start_addr;
@@ -84,8 +88,29 @@ class y86_instruction_handler {
     private:
         unique_ptr<y86_state> state; // Use smart pointer for state
         unique_ptr<y86_inst> inst;   // Use smart pointer for inst
-        inst_t inst_to_enum(string& str);
+        inst_t inst_to_enum(char* str);
         void convert_to_inst(string& instruction);
+        int read_quad(uint64_t address, uint64_t* value);
+        int write_quad(uint64_t address, uint64_t value);
+        void update_PC();
+        int irmovq();
+        int rrmovq();
+        int rmmovq();
+        int mrmovq();
+        int addq();
+        int subq();
+        int mulq();
+        int divq();
+        int xorq();
+        int andq();
+        int modq();
+        int cmov(int cc);
+        int jmpCond(int cc);
+        int pushq();
+        int popq();
+        int call();
+        int ret();
+        string dump_state();
 
     public:
         y86_instruction_handler();

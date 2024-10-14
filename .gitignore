@@ -36,7 +36,6 @@ Thumbs.db
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
-Makefile
 
 # Ignore VSCode workspace settings
 .vscode/

@@ -21,7 +21,6 @@ void handle_sigchld(int sig) {
 
 // Global map to store each client's instruction handler, indexed by the client socket
 unordered_map<int, shared_ptr<y86_instruction_handler>> client_lists;
-// Hello
 
 // Function to process the client's command and modify their list
 string process_command(int clientSocket, const string& command) {
@@ -50,8 +49,9 @@ int main() {
     if (bind(serverSocket, (struct sockaddr*)&serverAddress, sizeof(serverAddress)) == -1) {
         cerr << "Failed to bind the socket." << endl;
         close(serverSocket); // Clean up
+        //comment
         return 1;
-    }
+    } 
 
     // Listening to the assigned socket
     if (listen(serverSocket, 5) == -1) {
